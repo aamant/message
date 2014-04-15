@@ -13,12 +13,11 @@ class MailboxController extends BaseController
 		$messages = array();
 
 		$senders = \User::whereHas('sent', function($query) use ($user) {
-			$query
-				->where('to_id', $user->id)
-				->orWhere('from_id', $user->id)
-			;
-		})
-			->where('id', '!=', $user->id)
+				$query->where('to_id', $user->id);
+			})
+			->orWhereHas('received', function($query) use ($user) {
+				$query->where('from_id', $user->id);
+			})
 			->orderBy('created_at', 'desc')
 			->get();
 
