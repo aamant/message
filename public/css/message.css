@@ -1,0 +1,26 @@
+.mailbox {
+	min-height: 200px;
+}
+
+.mailbox .user-list .active {
+	background-color: lightgrey;
+	border: 1px solid grey;
+}
+
+.mailbox .message-list {
+	font-size: 14px;
+}
+
+.mailbox .message-list .new {
+	background-color: lightgrey;
+
+}
+
+.mailbox .user-list .list-group-item {
+	padding-right: 25px;
+}
+
+#message-modal .list-group {
+	height: 244px;
+	overflow: scroll;
+}
