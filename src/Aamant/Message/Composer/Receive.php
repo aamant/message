@@ -4,10 +4,14 @@ class Receive
 {
 	public function compose($view)
 	{
-		$mailbox_counter = \Auth::user()
-			->received()
-			->where('status', 'new')
-			->count();
+		if (!\Auth::check())
+			$mailbox_counter = 0;
+		else {
+			$mailbox_counter = \Auth::user()
+				->received()
+				->where('status', 'new')
+				->count();
+		}
 		$mailbox_url = \URL::route('mailbox.show');
 
 		$view->with('mailbox_counter', $mailbox_counter);
