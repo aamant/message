@@ -1,13 +1,9 @@
 <div class="modal-header">
 	<button type="button" class="close" data-dismiss="modal" aria-hidden="true">&times;</button>
-	<div class="row">
-		<div class="col-xs-3">
-			<img src="{{asset($current->avatar)}}" alt="">
-		</div>
-		<div class="col-xs-9">
-			<h4 class="modal-title">{{{$fullname}}}</h4>
-		</div>
-	</div>
+		<h4 class="modal-title">
+			<img src="{{asset($current->avatar)}}" alt="{{{$fullname}}}">
+			{{{$fullname}}}
+		</h4>
 </div>
 <div class="modal-body">
 	<textarea name="text-{{$current->id}}" id="text-{{$current->id}}" rows="10" class="form-control"></textarea>
